@@ -1,0 +1,26 @@
+#
+# bgpmgmtd
+#
+
+if BGPMGMTD
+sbin_PROGRAMS += bgpmgmtd/bgpmgmtd
+vtysh_daemons += bgpmgmtd
+
+# man8 += $(MANBUILD)/frr-ripd.8
+endif
+
+bgpmgmtd_bgpmgmtd_SOURCES = \
+	bgpmgmtd/bgpmgmtd_main.c \
+	bgpmgmtd/bgpmgmtd.c \
+	# end
+
+# clippy_scan += \
+# 	ripd/rip_bfd.c \
+# 	ripd/rip_cli.c \
+	# end
+
+noinst_HEADERS += \
+	bgpmgmtd/bgpmgmtd.h \
+	# end
+
+bgpmgmtd_bgpmgmtd_LDADD = lib/libfrr.la $(LIBCAP)

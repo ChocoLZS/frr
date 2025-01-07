@@ -707,6 +707,8 @@ AC_ARG_ENABLE([zebra],
   AS_HELP_STRING([--disable-zebra], [do not build zebra daemon]))
 AC_ARG_ENABLE([bgpd],
   AS_HELP_STRING([--disable-bgpd], [do not build bgpd]))
+AC_ARG_ENABLE([bgpmgmtd],
+  AS_HELP_STRING([--disable-bgpmgmtd], [do not build bgpmgmtd]))
 AC_ARG_ENABLE([mgmtd],
   AS_HELP_STRING([--disable-mgmtd], [do not build mgmtd]))
 AC_ARG_ENABLE([mgmtd_local_validations],
@@ -2788,6 +2790,7 @@ dnl daemons
 AM_CONDITIONAL([VTYSH], [test "$VTYSH" = "vtysh"])
 AM_CONDITIONAL([ZEBRA], [test "$enable_zebra" != "no"])
 AM_CONDITIONAL([BGPD], [test "$enable_bgpd" != "no"])
+AM_CONDITIONAL([BGPMGMTD], [test "$enable_bgpmgmtd" != "no"])
 AM_CONDITIONAL([MGMTD], [test "$enable_mgmtd" != "no"])
 AM_CONDITIONAL([MGMTD_TESTC], [test "$enable_mgmtd_test_be_client" = "yes"])
 AM_CONDITIONAL([FPM_LISTENER], [test "enable_fpm_listener" = "yes"])
