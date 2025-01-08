@@ -1829,6 +1829,10 @@ AS_IF([test "$enable_bgpd" != "no"], [
   AC_DEFINE([HAVE_BGPD], [1], [bgpd])
 ])
 
+AS_IF([test "$enable_bgpmgmtd" != "no"], [
+  AC_DEFINE([HAVE_BGPMGMTD], [1], [bgpmgmtd])
+])
+
 AS_IF([test "$enable_mgmtd" != "no"], [
 
   AC_DEFINE([HAVE_MGMTD], [1], [mgmtd])
