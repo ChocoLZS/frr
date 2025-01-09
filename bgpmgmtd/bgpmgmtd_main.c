@@ -33,6 +33,11 @@ void sigusr1(void)
 __attribute__((__noreturn__)) void sigint(void)
 {
 	zlog_notice("Terminating on signal");
+    /* Signalize shutdown. */
+	frr_early_fini();
+
+    /* Terminate and free() FRR related memory. */
+	frr_fini();
 
 	exit(0);
 }
@@ -87,25 +92,24 @@ FRR_DAEMON_INFO(bgpmgmtd, BGPMGMTD,
 
 int main(int argc, char **argv)
 {
+    int opt;
+
     frr_preinit(&bgpmgmtd_di, argc, argv);
+
+    while (true) {
+		opt = frr_getopt(argc, argv, NULL);
+		if (opt == EOF)
+			break;
+    }
 
     /* Initialize FRR infrastructure. */
 	master = frr_init();
-    // write something to file
-    FILE *file = fopen("/tmp/bgpmgmtd.txt", "w");
-    if (file == NULL) {
-        zlog_err("Failed to open file");
-        return 1;
-    }
 
-    fprintf(file, "Hello, this is the message from bgpmgmtd!\n");
-    fclose(file);
 
-    zlog_info("bgpmgmtd is running!");
 
     frr_config_fork();
-
     frr_run(master);
 
+    /* Not reached. */
     return 0;
 }
