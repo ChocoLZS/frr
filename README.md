@@ -2,8 +2,12 @@
 <img src="http://docs.frrouting.org/en/latest/_static/frr-icon.svg" alt="Icon" width="20%"/>
 </p>
 
-FRRouting-bgp-patch
-=========
+# FRRouting-bgp-patch
+
+添加 Bgp 远程管理接口（socket），来进行特定需求下的 bgp 策略变更
+[bgpmgmtd](bgpmgmtd/README.md)
+
+---
 
 FRR is free software that implements and manages various IPv4 and IPv6 routing
 protocols. It runs on nearly all distributions of Linux and BSD and
@@ -11,25 +15,24 @@ supports all modern CPU architectures.
 
 FRR currently supports the following protocols:
 
-* BGP
-* OSPFv2
-* OSPFv3
-* RIPv1
-* RIPv2
-* RIPng
-* IS-IS
-* PIM-SM/MSDP
-* LDP
-* BFD
-* Babel
-* PBR
-* OpenFabric
-* VRRP
-* EIGRP (alpha)
-* NHRP (alpha)
+- BGP
+- OSPFv2
+- OSPFv3
+- RIPv1
+- RIPv2
+- RIPng
+- IS-IS
+- PIM-SM/MSDP
+- LDP
+- BFD
+- Babel
+- PBR
+- OpenFabric
+- VRRP
+- EIGRP (alpha)
+- NHRP (alpha)
 
-Installation & Use
-------------------
+## Installation & Use
 
 For source tarballs, see the
 [releases page](https://github.com/FRRouting/frr/releases).
@@ -44,15 +47,14 @@ be found in the
 Once installed, please refer to the [user guide](http://docs.frrouting.org/)
 for instructions on use.
 
-Community
----------
+## Community
 
 The FRRouting email list server is located
 [here](https://lists.frrouting.org/listinfo) and offers the following public
 lists:
 
 | Topic             | List                         |
-|-------------------|------------------------------|
+| ----------------- | ---------------------------- |
 | Development       | dev@lists.frrouting.org      |
 | Users & Operators | frog@lists.frrouting.org     |
 | Announcements     | announce@lists.frrouting.org |
@@ -61,9 +63,7 @@ For chat, we currently use [Slack](https://frrouting.slack.com). You can join
 by clicking the "Slack" link under the
 [Participate](https://frrouting.org/community) section of our website.
 
-
-Contributing
-------------
+## Contributing
 
 FRR maintains [developer's documentation](http://docs.frrouting.org/projects/dev-guide/en/latest/index.html)
 which contains the [project workflow](http://docs.frrouting.org/projects/dev-guide/en/latest/workflow.html)
@@ -72,9 +72,7 @@ internals is also available.
 
 We welcome and appreciate all contributions, no matter how small!
 
-
-Security
---------
+## Security
 
 To report security issues, please use our security mailing list:
 
