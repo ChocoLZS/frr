@@ -61,12 +61,30 @@ typedef void (*bgpmgmt_socket_expcet_cb)(unsigned char data[], void *arg);
  * 关闭socket
  */
 void socket_close(int *s);
+/**
+ * 释放socket上下文资源
+ */
 static void bgpmgmt_socket_ctx_free(struct bgpmgmt_socket_ctx *bsc);
+/**
+ * 从client socket读取数据，并启用回调函数
+ */
 static int bgpmgmt_socket_expect(struct bgpmgmt_socket_ctx *bsc, uint16_t id,
 				bgpmgmt_socket_expcet_cb cb, void *arg);
+/**
+ * 尝试从client socket读取数据
+ */
 static void bgpmgmt_socket_read(struct event *t);
+/**
+ * 创建新的socket上下文
+ */
 static struct bgpmgmt_socket_ctx *bgpmgmt_socket_ctx_new(int sock);
+/**
+ * 等待新的socket连接
+ */
 static void mgmt_socket_accept(struct event *t);
+/**
+ * 释放socket server资源
+ */
 static int mgmt_socket_finish_late(void);
 
 
