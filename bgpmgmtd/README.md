@@ -1,5 +1,7 @@
 # FRR bgp 管理守护进程
 
+[部署使用](https://github.com/ChocoLZS/frr-utilities/tree/main/containerlab/topo/bgp/bgpmgmtd-multias-bfd): 请结合 containerlab 一起使用
+
 > Bgp 管理控制器守护进程，基于 frr 的守护进程框架编写
 
 ---
