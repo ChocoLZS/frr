@@ -11,7 +11,7 @@ endif
 
 bgpmgmtd_bgpmgmtd_SOURCES = \
 	bgpmgmtd/bgpmgmtd_main.c \
-	bgpmgmtd/bgpmgmtd.c \
+	bgpmgmtd/bgpmgmt.c \
 	# end
 
 # clippy_scan += \
@@ -20,7 +20,7 @@ bgpmgmtd_bgpmgmtd_SOURCES = \
 	# end
 
 noinst_HEADERS += \
-	bgpmgmtd/bgpmgmtd.h \
+	bgpmgmtd/bgpmgmt.h \
 	# end
 
 bgpmgmtd_bgpmgmtd_LDADD = lib/libfrr.la $(LIBCAP)

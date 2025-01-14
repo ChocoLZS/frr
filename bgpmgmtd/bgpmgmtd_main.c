@@ -2,10 +2,9 @@
 #include <zebra.h>
 
 #include <lib/version.h>
-#include "libfrr.h"
-#include "log.h"
 
-#include "bgpmgmtd/bgpmgmtd.h"
+#include "bgpmgmtd/bgpmgmt.h"
+// #include "bgpmgmtd/side_socket.h"
 
 /* Master of threads. */
 struct event_loop *master;
@@ -90,12 +89,15 @@ FRR_DAEMON_INFO(bgpmgmtd, BGPMGMTD,
     .privs = &bgpmgmtd_privs,
 );
 
+struct _bgpmgmt_global bgpmgmt_global;
+
 int main(int argc, char **argv)
 {
     int opt;
+    struct sockaddr_in addr;
 
     frr_preinit(&bgpmgmtd_di, argc, argv);
-
+    /* 处理命令行参数，如下处理逻辑不能删除 */
     while (true) {
 		opt = frr_getopt(argc, argv, NULL);
 		if (opt == EOF)
@@ -108,6 +110,20 @@ int main(int argc, char **argv)
 
 
     frr_config_fork();
+
+	/* Initialize bgpmgmt infrastructure for api exposing. */
+	memset(&addr, 0, sizeof(addr));
+	addr.sin_family = AF_INET;
+	addr.sin_port = htons(25565);
+	addr.sin_addr.s_addr = htonl(INADDR_LOOPBACK);
+	zlog_info("Initializing bgpmgmt socket");
+
+	if(mgmt_socket_init((struct sockaddr *)&addr, sizeof(addr), false) < 0) {
+		zlog_err("Failed to initialize bgpmgmt socket");
+		exit(1);
+	}
+	zlog_notice("bgpmgmt socket initialized");
+
     frr_run(master);
 
     /* Not reached. */
