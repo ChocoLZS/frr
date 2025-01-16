@@ -189,6 +189,7 @@ include mgmtd/subdir.am
 include bgpd/subdir.am
 include bgpd/rfp-example/librfp/subdir.am
 include bgpd/rfp-example/rfptest/subdir.am
+include bgpmgmtd/subdir.am
 include ripd/subdir.am
 include ripngd/subdir.am
 include ospfd/subdir.am
@@ -264,6 +265,7 @@ EXTRA_DIST += \
 	babeld/Makefile \
 	mgmtd/Makefile \
 	bgpd/Makefile \
+	bgpmgmtd/Makefile \
 	bgpd/rfp-example/librfp/Makefile \
 	bgpd/rfp-example/rfptest/Makefile \
 	doc/Makefile \
