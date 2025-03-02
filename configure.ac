@@ -733,6 +733,8 @@ AC_ARG_ENABLE([babeld],
   AS_HELP_STRING([--disable-babeld], [do not build babeld]))
 AC_ARG_ENABLE([watchfrr],
   AS_HELP_STRING([--disable-watchfrr], [do not build watchfrr]))
+AC_ARG_ENABLE([helloworld],
+  AS_HELP_STRING([--disable-helloworld], [do not build helloworld]))
 AC_ARG_ENABLE([isisd],
   AS_HELP_STRING([--disable-isisd], [do not build isisd]))
 AC_ARG_ENABLE([pimd],
@@ -1877,6 +1879,11 @@ AS_IF([test "$enable_babeld" != "no"], [
   AC_DEFINE([HAVE_BABELD], [1], [babeld])
 ])
 
+## HAVE_HELLOWORLD used for vtysh/vtysh.c
+AS_IF([test "$enable_helloworld" != "no"], [
+  AC_DEFINE([HAVE_HELLOWORLD], [1], [helloworld])
+])
+
 AS_IF([test "$enable_isisd" != "no"], [
   AC_DEFINE([HAVE_ISISD], [1], [isisd])
 ])
@@ -2802,6 +2809,7 @@ AM_CONDITIONAL([OSPFCLIENT], [test "$OSPFCLIENT" = "ospfclient"])
 AM_CONDITIONAL([RIPNGD], [test "$enable_ripngd" != "no"])
 AM_CONDITIONAL([BABELD], [test "$enable_babeld" != "no"])
 AM_CONDITIONAL([OSPF6D], [test "$enable_ospf6d" != "no"])
+AM_CONDITIONAL([HELLOWORLD], [test "$enable_helloworld" != "no"])
 AM_CONDITIONAL([ISISD], [test "$enable_isisd" != "no"])
 AM_CONDITIONAL([PIMD], [test "$enable_pimd" != "no"])
 AM_CONDITIONAL([PIM6D], [test "$enable_pim6d" != "no"])
