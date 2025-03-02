@@ -194,6 +194,7 @@ include ripngd/subdir.am
 include ospfd/subdir.am
 include ospf6d/subdir.am
 include ospfclient/subdir.am
+include helloworld/subdir.am
 include isisd/subdir.am
 include nhrpd/subdir.am
 include ldpd/subdir.am
@@ -273,6 +274,7 @@ EXTRA_DIST += \
 	eigrpd/Makefile \
 	fpm/Makefile \
 	grpc/Makefile \
+	helloworld/Makefile \
 	isisd/Makefile \
 	ldpd/Makefile \
 	lib/Makefile \
