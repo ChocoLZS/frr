@@ -103,6 +103,9 @@ DECLARE_DLIST(log_args, struct log_arg, itm);
 #define MGMTD_VTY_PORT 2623
 /* Registry of daemons' port defaults */
 
+/* your daemon */
+#define HELLOWORLD_VTY_PORT 2624
+
 enum frr_cli_mode {
 	FRR_CLI_CLASSIC = 0,
 	FRR_CLI_TRANSACTIONAL,
