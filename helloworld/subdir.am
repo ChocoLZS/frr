@@ -1,0 +1,20 @@
+#
+# helloworld
+#
+
+if HELLOWORLD
+sbin_PROGRAMS += helloworld/helloworld
+vtysh_daemons += helloworld
+
+endif
+
+helloworld_helloworld_SOURCES = \
+	helloworld/helloworld_main.c \
+	helloworld/helloworld.c \
+	# end
+
+noinst_HEADERS += \
+	helloworld/helloworld.h \
+	# end
+
+helloworld_helloworld_LDADD = lib/libfrr.la $(LIBCAP)
